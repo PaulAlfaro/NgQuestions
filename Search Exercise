@@ -1,0 +1,29 @@
+**** Given the below Angular Template ****
+
+<form class="form-inline">
+  <div class="form-group">
+    <input type="search"
+           class="form-control"
+           placeholder="Enter search string"
+           [formControl]="searchField">
+  </div>
+</form>
+
+
+
+**** Complete the Component ****
+
+class AppComponent {
+  private results: Observable<String>;
+  private searchField: FormControl;
+
+  constructor(private searchService:SearchService) { }
+
+  ngOnInit() {
+    this.searchField = new FormControl();
+    this.results = this.searchField.valueChanges
+      .debounceTime(400)
+      .distinctUntilChanged()
+      .subscribe();
+  }
+}
