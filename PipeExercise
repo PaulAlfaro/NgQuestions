@@ -1,0 +1,15 @@
+***** Given the Following Angular Template *****
+
+template: `
+      <h2>Find the size of a file</h2>
+      <p>Size: {{288966 | customFileSizePipe: 'GB'}}</p>
+    `
+
+
+***** Create the corresponding Custom Pipe to make the above template work *****
+
+import { Pipe, PipeTransform } from '@angular/core';
+
+export class FileSizePipe {
+    // TODO
+}
